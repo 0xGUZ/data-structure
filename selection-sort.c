@@ -4,9 +4,9 @@
 
 clock_t start, end;
 
-//SELECTION SORT
-//time complexity - worst, avg, best = O(n²)
-//space complexity - worst, avg, best = O(1)
+/*SELECTION SORT
+time complexity - worst, avg, best = O(n²))
+space complexity - worst, avg, best = O(1)*/
 
 void selectionSort(int arr[], int n){
     int i, j;
@@ -32,6 +32,8 @@ int main(){
         printTime(start,end);
         checkIfSorted(arr,size);
 
+    free(arr);
     return 0;
 }
 
+/*  gcc selection-sort.c headers/ds.c -ansi -pedantic -Wall -o selection-sort && ./selection-sort  */
