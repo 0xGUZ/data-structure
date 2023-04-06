@@ -1,6 +1,6 @@
 #include "ds.h"
 
-//util
+/*util*/
 int* generateRandomArray(int size) {
     int* arr = malloc(size * sizeof(int));
     int i;
@@ -40,7 +40,7 @@ void printTime(clock_t start, clock_t end){
     printf("\ntime: %fms\n",((double) (end - start)) / CLOCKS_PER_SEC * 1000.0);
 }
 
-//sorting algorithms
+/*sorting algorithms*/
 void selectionSort(int arr[], int n){
     int i, j;
     for(i = 0; i < n-1; i++){

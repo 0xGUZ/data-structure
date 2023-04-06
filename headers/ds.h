@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-//utils
+/*utils*/
 int* generateRandomArray(int size);
 
 void swap(int* a, int*b);
@@ -16,7 +16,7 @@ void printArray(int arr[], int n);
 
 void printTime(clock_t start, clock_t end);
 
-//sorting algorithms
+/*sorting algorithms*/
 void selectionSort(int arr[], int n);
 
 #endif
