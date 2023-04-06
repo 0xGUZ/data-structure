@@ -25,4 +25,6 @@ void dsSelectionSort(int arr[], int n);
 
 void dsBubbleSort(int arr[], int n);
 
+void dsInsertionSort(int arr[], int n);
+
 #endif
