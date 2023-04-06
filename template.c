@@ -14,7 +14,7 @@ void renameThis(int arr[], int n){
 }
 
 int main(){
-    int size = 1000;
+    int size = 50000;
     int* arr = generateRandomArray(size);
 
     start = clock();
