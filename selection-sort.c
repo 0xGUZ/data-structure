@@ -4,6 +4,10 @@
 
 clock_t start, end;
 
+//SELECTION SORT
+//time complexity - worst, avg, best = O(n²)
+//space complexity - worst, avg, best = O(1)
+
 void selectionSort(int arr[], int n){
     int i, j;
     for(i = 0; i < n-1; i++){
