@@ -41,7 +41,7 @@ void printTime(clock_t start, clock_t end){
 }
 
 /*sorting algorithms*/
-void selectionSort(int arr[], int n){
+void dsSelectionSort(int arr[], int n){
     int i, j;
     for(i = 0; i < n-1; i++){
         for(j = i+1; j < n; j++){
@@ -50,4 +50,16 @@ void selectionSort(int arr[], int n){
             }
         }
     }
+}
+
+void dsBubbleSort(int arr[], int n){
+    int i;
+
+    if (n < 1) return;
+    for(i=0; i<n; i++){
+        if(arr[i] > arr[i+1]){
+            swap(&arr[i],&arr[i+1]);
+        }
+    }
+    dsBubbleSort(arr, n-1);
 }
