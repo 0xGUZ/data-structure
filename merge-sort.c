@@ -29,4 +29,6 @@ int main(){
     return 0;
 }
 
-/*  gcc merge-sort.c headers/ds.c -ansi -pedantic -Wall -o merge-sort && ./merge-sort   */
+/*  
+gcc merge-sort.c headers/ds.c -ansi -pedantic -Wall -o merge-sort && ./merge-sort   
+*/

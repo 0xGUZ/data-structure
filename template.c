@@ -30,4 +30,6 @@ int main(){
     return 0;
 }
 
-/*  gcc renameThis-sort.c headers/ds.c -ansi -pedantic -Wall -o renameThis-sort && ./renameThis-sort  */
+/*  
+gcc renameThis-sort.c headers/ds.c -ansi -pedantic -Wall -o renameThis-sort && ./renameThis-sort  
+*/

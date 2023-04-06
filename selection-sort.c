@@ -36,4 +36,6 @@ int main(){
     return 0;
 }
 
-/*  gcc selection-sort.c headers/ds.c -ansi -pedantic -Wall -o selection-sort && ./selection-sort  */
+/*  
+gcc selection-sort.c headers/ds.c -ansi -pedantic -Wall -o selection-sort && ./selection-sort  
+*/
