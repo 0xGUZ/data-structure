@@ -8,6 +8,10 @@
 /*utils*/
 int* generateRandomArray(int size);
 
+int* generateSortedArray(int size);
+
+int* generateInvertedSortedArray(int size);
+
 void swap(int* a, int* b);
 
 int checkIfSorted(int* arr, int size);

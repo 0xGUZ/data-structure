@@ -10,6 +10,24 @@ int* generateRandomArray(int size) {
     return arr;
 }
 
+int* generateSortedArray(int size) {
+    int* arr = malloc(size * sizeof(int));
+    int i;
+    for (i = 0; i < size; i++){
+        arr[i] = i;
+    }
+    return arr;
+}
+
+int* generateInvertedSortedArray(int size) {
+    int* arr = malloc(size * sizeof(int));
+    int i;
+    for (i = 0; i < size; i++){
+        arr[i] = size-i-1;
+    }
+    return arr;
+}
+
 void swap(int* a, int* b){
     int tmp = *a;
     *a = *b;
