@@ -2,8 +2,6 @@
 #include<stdlib.h>
 #include<string.h>
 
-#define MAX_ARESTAS 1000
-
 struct Aresta {
     int origem, destino, peso;
 };
@@ -24,8 +22,9 @@ struct Grafo* criarGrafo(int V, int E) {
 int particiona(struct Aresta arr[], int baixo, int alto) {
     int pivot = arr[alto].peso;
     int i = (baixo - 1);
+    int j;
 
-    for (int j = baixo; j <= alto - 1; j++) {
+    for (j = baixo; j <= alto - 1; j++) {
         if (arr[j].peso < pivot) {
             i++;
             struct Aresta temp = arr[i];
@@ -84,29 +83,25 @@ int kruskalMST(struct Grafo* grafo) {
     return somaPeso;
 }
 
-void lerArestas(struct Grafo* grafo) {
-    char line[200];
-    int origem, destino, peso, i = 0;
-
-    while(fgets(line, 200, stdin) != NULL && i < MAX_ARESTAS) {
-        sscanf(line, "%d %d %d", &origem, &destino, &peso);
+void lerArestas(struct Grafo* grafo, int E) {
+    int origem, destino, peso, i;
+    
+    for(i = 0; i < E; i++) {
+        scanf("%d %d %d", &origem, &destino, &peso);
 
         grafo->aresta[i].origem = origem;
         grafo->aresta[i].destino = destino;
         grafo->aresta[i].peso = peso;
-
-        i++;
     }
-
-    grafo->E = i;
-    grafo->aresta = realloc(grafo->aresta, i * sizeof(struct Aresta));
 }
 
 int main() {
-    int V = MAX_ARESTAS;
-    struct Grafo* grafo = criarGrafo(V, MAX_ARESTAS);
+    int V, E;
+    scanf("%d %d", &V, &E);
 
-    lerArestas(grafo);
+    struct Grafo* grafo = criarGrafo(V, E);
+
+    lerArestas(grafo, E);
 
     printf("%d\n", kruskalMST(grafo));
 
