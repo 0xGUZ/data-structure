@@ -1,5 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
+
+#define MAX_ARESTAS 1000
 
 struct Aresta {
     int origem, destino, peso;
@@ -14,7 +17,7 @@ struct Grafo* criarGrafo(int V, int E) {
     struct Grafo* grafo = (struct Grafo*) malloc(sizeof(struct Grafo));
     grafo->V = V;
     grafo->E = E;
-    grafo->aresta = (struct Aresta*) malloc(grafo->E * sizeof(struct Aresta));
+    grafo->aresta = (struct Aresta*) malloc(E * sizeof(struct Aresta));
     return grafo;
 }
 
@@ -40,9 +43,9 @@ void Union(int parent[], int x, int y) {
 
 int kruskalMST(struct Grafo* grafo) {
     int v, e, somaPeso = 0, x, y;
-    struct Aresta result[grafo->V];
+    int *parent = (int*) malloc(grafo->V * sizeof(int));
+
     qsort(grafo->aresta, grafo->E, sizeof(grafo->aresta[0]), compara);
-    int *parent = (int*) malloc( grafo->V * sizeof(int));
 
     for (v = 0; v < grafo->V; ++v)
         parent[v]=-1;
@@ -51,31 +54,43 @@ int kruskalMST(struct Grafo* grafo) {
         x = find(parent, grafo->aresta[e].origem);
         y = find(parent, grafo->aresta[e].destino);
         if (x != y) {
-            result[e] = grafo->aresta[e];
             somaPeso += grafo->aresta[e].peso;
             Union(parent, x, y);
         }
     }
+    free(parent);
     return somaPeso;
 }
 
-int main() {
-    int V, E, i;
+void lerArestas(struct Grafo* grafo) {
+    char line[200];
+    int origem, destino, peso, i = 0;
 
-    printf("Insira o número de vértices: ");
-    scanf("%d", &V);
+    while(fgets(line, 200, stdin) != NULL && i < MAX_ARESTAS) {
+        sscanf(line, "%d %d %d", &origem, &destino, &peso);
 
-    printf("Insira o número de arestas: ");
-    scanf("%d", &E);
+        grafo->aresta[i].origem = origem;
+        grafo->aresta[i].destino = destino;
+        grafo->aresta[i].peso = peso;
 
-    struct Grafo* grafo = criarGrafo(V, E);
-
-    for(i=0; i<E; i++){
-        printf("Insira a origem, destino e peso da aresta %d: ", i+1);
-        scanf("%d%d%d", &grafo->aresta[i].origem, &grafo->aresta[i].destino, &grafo->aresta[i].peso);
+        i++;
     }
 
-    printf("Peso da árvore geradora mínima: %d\n", kruskalMST(grafo));
+    grafo->E = i;
+    grafo->aresta = realloc(grafo->aresta, i * sizeof(struct Aresta));
+}
+
+int main() {
+    int V = MAX_ARESTAS;
+    struct Grafo* grafo = criarGrafo(V, MAX_ARESTAS);
+
+    lerArestas(grafo);
+
+    printf("Peso da arvore geradora minima: %d\n", kruskalMST(grafo));
+
+    // Libera a memória
+    free(grafo->aresta);
+    free(grafo);
 
     return 0;
 }
