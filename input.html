@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input de Dados</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+        <form id="dataForm">
+            <label for="city">Cidade:</label><br>
+            <input type="text" id="city" name="city"><br><br>
+            <table>
+                <tr>
+                    <th>Faixa Etária</th>
+                    <th>Dependentes Masculinos</th>
+                    <th>Dependentes Femininos</th>
+                    <th>Titulares Masculinos</th>
+                    <th>Titulares Femininos</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>0 à 18</td>
+                    <td><input type="number" id="dm0" name="dm0" min="0" oninput="calculateTotal(0)"></td>
+                    <td><input type="number" id="df0" name="df0" min="0" oninput="calculateTotal(0)"></td>
+                    <td><input type="number" id="tm0" name="tm0" min="0" oninput="calculateTotal(0)"></td>
+                    <td><input type="number" id="tf0" name="tf0" min="0" oninput="calculateTotal(0)"></td>
+                    <td id="total0">0</td>
+                </tr>
+                <tr>
+                    <td>19 à 23</td>
+                    <td><input type="number" id="dm1" name="dm1" min="0" oninput="calculateTotal(1)"></td>
+                    <td><input type="number" id="df1" name="df1" min="0" oninput="calculateTotal(1)"></td>
+                    <td><input type="number" id="tm1" name="tm1" min="0" oninput="calculateTotal(1)"></td>
+                    <td><input type="number" id="tf1" name="tf1" min="0" oninput="calculateTotal(1)"></td>
+                    <td id="total1">0</td>
+                </tr>
+                <tr>
+                    <td>24 à 28</td>
+                    <td><input type="number" id="dm2" name="dm2" min="0" oninput="calculateTotal(2)"></td>
+                    <td><input type="number" id="df2" name="df2" min="0" oninput="calculateTotal(2)"></td>
+                    <td><input type="number" id="tm2" name="tm2" min="0" oninput="calculateTotal(2)"></td>
+                    <td><input type="number" id="tf2" name="tf2" min="0" oninput="calculateTotal(2)"></td>
+                    <td id="total2">0</td>
+                </tr>
+                <tr>
+                    <td>29 à 33</td>
+                    <td><input type="number" id="dm3" name="dm3" min="0" oninput="calculateTotal(3)"></td>
+                    <td><input type="number" id="df3" name="df3" min="0" oninput="calculateTotal(3)"></td>
+                    <td><input type="number" id="tm3" name="tm3" min="0" oninput="calculateTotal(3)"></td>
+                    <td><input type="number" id="tf3" name="tf3" min="0" oninput="calculateTotal(3)"></td>
+                    <td id="total3">0</td>
+                </tr>
+                <tr>
+                    <td>34 à 38</td>
+                    <td><input type="number" id="dm4" name="dm4" min="0" oninput="calculateTotal(4)"></td>
+                    <td><input type="number" id="df4" name="df4" min="0" oninput="calculateTotal(4)"></td>
+                    <td><input type="number" id="tm4" name="tm4" min="0" oninput="calculateTotal(4)"></td>
+                    <td><input type="number" id="tf4" name="tf4" min="0" oninput="calculateTotal(4)"></td>
+                    <td id="total4">0</td>
+                </tr>
+                <tr>
+                    <td>39 à 43</td>
+                    <td><input type="number" id="dm5" name="dm5" min="0" oninput="calculateTotal(5)"></td>
+                    <td><input type="number" id="df5" name="df5" min="0" oninput="calculateTotal(5)"></td>
+                    <td><input type="number" id="tm5" name="tm5" min="0" oninput="calculateTotal(5)"></td>
+                    <td><input type="number" id="tf5" name="tf5" min="0" oninput="calculateTotal(5)"></td>
+                    <td id="total5">0</td>
+                </tr>
+                <tr>
+                    <td>44 à 48</td>
+                    <td><input type="number" id="dm6" name="dm6" min="0" oninput="calculateTotal(6)"></td>
+                    <td><input type="number" id="df6" name="df6" min="0" oninput="calculateTotal(6)"></td>
+                    <td><input type="number" id="tm6" name="tm6" min="0" oninput="calculateTotal(6)"></td>
+                    <td><input type="number" id="tf6" name="tf6" min="0" oninput="calculateTotal(6)"></td>
+                    <td id="total6">0</td>
+                </tr>
+                <tr>
+                    <td>49 à 53</td>
+                    <td><input type="number" id="dm7" name="dm7" min="0" oninput="calculateTotal(7)"></td>
+                    <td><input type="number" id="df7" name="df7" min="0" oninput="calculateTotal(7)"></td>
+                    <td><input type="number" id="tm7" name="tm7" min="0" oninput="calculateTotal(7)"></td>
+                    <td><input type="number" id="tf7" name="tf7" min="0" oninput="calculateTotal(7)"></td>
+                    <td id="total7">0</td>
+                </tr>
+                <tr>
+                    <td>54 à 58</td>
+                    <td><input type="number" id="dm8" name="dm8" min="0" oninput="calculateTotal(8)"></td>
+                    <td><input type="number" id="df8" name="df8" min="0" oninput="calculateTotal(8)"></td>
+                    <td><input type="number" id="tm8" name="tm8" min="0" oninput="calculateTotal(8)"></td>
+                    <td><input type="number" id="tf8" name="tf8" min="0" oninput="calculateTotal(8)"></td>
+                    <td id="total8">0</td>
+                </tr>
+                <tr>
+                    <td>59 à 100</td>
+                    <td><input type="number" id="dm9" name="dm9" min="0" oninput="calculateTotal(9)"></td>
+                    <td><input type="number" id="df9" name="df9" min="0" oninput="calculateTotal(9)"></td>
+                    <td><input type="number" id="tm9" name="tm9" min="0" oninput="calculateTotal(9)"></td>
+                    <td><input type="number" id="tf9" name="tf9" min="0" oninput="calculateTotal(9)"></td>
+                    <td id="total9">0</td>
+                </tr>
+                <tr>
+                    <td>101 à 200</td>
+                    <td><input type="number" id="dm10" name="dm10" min="0" oninput="calculateTotal(10)"></td>
+                    <td><input type="number" id="df10" name="df10" min="0" oninput="calculateTotal(10)"></td>
+                    <td><input type="number" id="tm10" name="tm10" min="0" oninput="calculateTotal(10)"></td>
+                    <td><input type="number" id="tf10" name="tf10" min="0" oninput="calculateTotal(10)"></td>
+                    <td id="total10">0</td>
+                </tr>
+
+                <tr>
+                    <td>Total</td>
+                    <td id="totalDm">0</td>
+                    <td id="totalDf">0</td>
+                    <td id="totalTm">0</td>
+                    <td id="totalTf">0</td>
+                    <td id="grandTotal">0</td>
+                </tr>
+
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+        
+    <button onclick="createNewForm()">Novo Formulário</button>
+
+    <script>
+        var formCount = 1;
+
+        function calculateTotal(input) {
+            var row = input.parentNode.parentNode;
+            var dm = parseInt(row.querySelector('.dm').value) || 0;
+            var df = parseInt(row.querySelector('.df').value) || 0;
+            var tm = parseInt(row.querySelector('.tm').value) || 0;
+            var tf = parseInt(row.querySelector('.tf').value) || 0;
+
+            var total = dm + df + tm + tf;
+            row.querySelector('.total').innerHTML = total;
+
+            calculateGrandTotal();
+        }
+
+        function calculateGrandTotal() {
+            var totalDm = 0;
+            var totalDf = 0;
+            var totalTm = 0;
+            var totalTf = 0;
+            var grandTotal = 0;
+
+            var forms = document.querySelectorAll('.dataForm');
+
+            forms.forEach(function (form) {
+                var dm = parseInt(form.querySelector('.dm').value) || 0;
+                var df = parseInt(form.querySelector('.df').value) || 0;
+                var tm = parseInt(form.querySelector('.tm').value) || 0;
+                var tf = parseInt(form.querySelector('.tf').value) || 0;
+
+                totalDm += dm;
+                totalDf += df;
+                totalTm += tm;
+                totalTf += tf;
+                grandTotal += dm + df + tm + tf;
+            });
+
+            document.querySelector('.totalDm').innerHTML = totalDm;
+            document.querySelector('.totalDf').innerHTML = totalDf;
+            document.querySelector('.totalTm').innerHTML = totalTm;
+            document.querySelector('.totalTf').innerHTML = totalTf;
+            document.querySelector('.grandTotal').innerHTML = grandTotal;
+        }
+
+        function createNewForm() {
+            var formContainer = document.getElementById('formContainer');
+
+            var newForm = document.createElement('div');
+            newForm.classList.add('form-container');
+            newForm.innerHTML = `
+                <form class="dataForm">
+                    <label for="city">Cidade:</label><br>
+                    <input type="text" class="city" name="city"><br><br>
+                    <table>
+                        <tr>
+                            <th>Faixa Etária</th>
+                            <th>Dependentes Masculinos</th>
+                            <th>Dependentes Femininos</th>
+                            <th>Titulares Masculinos</th>
+                            <th>Titulares Femininos</th>
+                            <th>Total</th>
+                        </tr>
+                        <tr>
+                            <td>0 à 18</td>
+                            <td><input type="number" class="dm" name="dm0" min="0" oninput="calculateTotal(this)"></td>
+                            <td><input type="number" class="df" name="df0" min="0" oninput="calculateTotal(this)"></td>
+                            <td><input type="number" class="tm" name="tm0" min="0" oninput="calculateTotal(this)"></td>
+                            <td><input type="number" class="tf" name="tf0" min="0" oninput="calculateTotal(this)"></td>
+                            <td class="total">0</td>
+                        </tr>
+                        <!-- Adicione as faixas etárias restantes aqui -->
+                        <tr>
+                            <td>Total Geral</td>
+                            <td class="totalDm">0</td>
+                            <td class="totalDf">0</td>
+                            <td class="totalTm">0</td>
+                            <td class="totalTf">0</td>
+                            <td class="grandTotal">0</td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Enviar">
+                </form>
+            `;
+
+            formContainer.appendChild(newForm);
+            formCount++;
+
+            updateFormIds();
+        }
+
+        function updateFormIds() {
+            var forms = document.querySelectorAll('.dataForm');
+
+            forms.forEach(function (form) {
+                var rows = form.querySelectorAll('tr');
+
+                rows.forEach(function (row, index) {
+                    var inputs = row.querySelectorAll('input');
+
+                    inputs.forEach(function (input) {
+                        var name = input.getAttribute('name');
+                        if (name) {
+                            var updatedName = name.replace(/\d+/, index);
+                            input.setAttribute('name', updatedName);
+                        }
+                    });
+
+                    var td = row.querySelector('.total');
+                    if (td) {
+                        td.setAttribute('id', 'total' + index);
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
