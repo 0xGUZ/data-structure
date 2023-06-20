@@ -21,44 +21,66 @@ struct Grafo* criarGrafo(int V, int E) {
     return grafo;
 }
 
-int compara(const void* k1, const void* k2) {
-    struct Aresta* a1 = (struct Aresta*)k1;
-    struct Aresta* a2 = (struct Aresta*)k2;
-    return a1->peso > a2->peso;
+int particiona(struct Aresta arr[], int baixo, int alto) {
+    int pivot = arr[alto].peso;
+    int i = (baixo - 1);
+
+    for (int j = baixo; j <= alto - 1; j++) {
+        if (arr[j].peso < pivot) {
+            i++;
+            struct Aresta temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+    struct Aresta temp = arr[i + 1];
+    arr[i + 1] = arr[alto];
+    arr[alto] = temp;
+
+    return (i + 1);
 }
 
-int find(int parent[], int i) {
-    if (parent[i] == -1)
+void quickSort(struct Aresta arr[], int baixo, int alto) {
+    if (baixo < alto) {
+        int pi = particiona(arr, baixo, alto);
+
+        quickSort(arr, baixo, pi - 1);
+        quickSort(arr, pi + 1, alto);
+    }
+}
+
+int acha(int parente[], int i) {
+    if (parente[i] == -1)
         return i;
-    return find(parent, parent[i]);
+    return acha(parente, parente[i]);
 }
 
-void Union(int parent[], int x, int y) {
-    int xset = find(parent, x);
-    int yset = find(parent, y);
+void uniao(int parente[], int x, int y) {
+    int xset = acha(parente, x);
+    int yset = acha(parente, y);
     if(xset!=yset) {
-        parent[xset] = yset;
+        parente[xset] = yset;
     }
 }
 
 int kruskalMST(struct Grafo* grafo) {
     int v, e, somaPeso = 0, x, y;
-    int *parent = (int*) malloc(grafo->V * sizeof(int));
+    int *parente = (int*) malloc(grafo->V * sizeof(int));
 
-    qsort(grafo->aresta, grafo->E, sizeof(grafo->aresta[0]), compara);
+    quickSort(grafo->aresta, 0, grafo->E - 1);
 
     for (v = 0; v < grafo->V; ++v)
-        parent[v]=-1;
+        parente[v]=-1;
 
     for(e = 0; e < grafo->E; e++) {
-        x = find(parent, grafo->aresta[e].origem);
-        y = find(parent, grafo->aresta[e].destino);
+        x = acha(parente, grafo->aresta[e].origem);
+        y = acha(parente, grafo->aresta[e].destino);
         if (x != y) {
             somaPeso += grafo->aresta[e].peso;
-            Union(parent, x, y);
+            uniao(parente, x, y);
         }
     }
-    free(parent);
+    free(parente);
     return somaPeso;
 }
 
