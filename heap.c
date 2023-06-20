@@ -86,7 +86,7 @@ int main() {
 
     lerArestas(grafo);
 
-    printf("Peso da arvore geradora minima: %d\n", kruskalMST(grafo));
+    printf("%d\n", kruskalMST(grafo));
 
     // Libera a memória
     free(grafo->aresta);
