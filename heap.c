@@ -88,7 +88,6 @@ int main() {
 
     printf("%d\n", kruskalMST(grafo));
 
-    // Libera a memória
     free(grafo->aresta);
     free(grafo);
 
